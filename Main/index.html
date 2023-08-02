@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>MeShop</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">Meshop</div>
+        <div class="nav-right">
+          <ul>
+            <li>
+              <a href="../index.html"
+                ><span class="material-symbols-outlined"> home </span></a
+              >
+            </li>
+            <li>
+              <a href="../cart/index.html"
+                ><span class="material-symbols-outlined"> local_mall </span
+                ><span class="items-count"></span
+              ></a>
+            </li>
+          </ul>
+          <div id="profile"></div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <span class="variety">Colors</span>
+          <div class="filter">
+            <div>
+              <input type="radio" name="color" id="red-cloth" />
+              <label for="red-cloth">Red</label>
+            </div>
+            <div>
+              <input type="radio" name="color" id="green-cloth" />
+              <label for="green-cloth">Green</label>
+            </div>
+            <div>
+              <input type="radio" name="color" id="white-cloth" />
+              <label for="white-cloth">White</label>
+            </div>
+            <div>
+              <input type="radio" name="color" id="black-cloth" />
+              <label for="black-cloth">Black</label>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <span class="variety">Size</span>
+          <div class="filter">
+            <div>
+              <input type="radio" name="size" id="small-cloth" />
+              <label for="small-cloth">S</label>
+            </div>
+            <div>
+              <input type="radio" name="size" id="medium-cloth" />
+              <label for="medium-cloth">M</label>
+            </div>
+            <div>
+              <input type="radio" name="size" id="large-cloth" />
+              <label for="large-cloth">L</label>
+            </div>
+            <div>
+              <input type="radio" name="size" id="xl-cloth" />
+              <label for="xl-cloth">XL</label>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <span class="variety">Rating</span>
+          <div class="filter">
+            <input type="range" value="0" id="rating" min="0" max="5" />
+            <div class="rating-num">
+              <span id="initialRatingNum">0</span>
+              <span id="finalRatingNum">5</span>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <span class="variety">Price Range</span>
+          <div class="filter">
+            <div>
+              <input type="radio" name="price-range" id="range-0-25" />
+              <label for="range-0-25">&dollar;0 to &dollar;25</label>
+            </div>
+            <div>
+              <input type="radio" name="price-range" id="range-25-50" />
+              <label for="range-25-50">&dollar;25 to &dollar;50</label>
+            </div>
+            <div>
+              <input type="radio" name="price-range" id="range-50-100" />
+              <label for="range-50-100">&dollar;50 to &dollar;100</label>
+            </div>
+            <div>
+              <input type="radio" name="price-range" id="range-100-above" />
+              <label for="range-100-above">&dollar;100 ownwards</label>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-btn">
+          <button id="apply-filter">Apply Filter</button>
+        </div>
+      </aside>
+      <section>
+        <div id="searchInput">
+          <img src="../images/search.png" alt="search" />
+          <input type="text" placeholder="Search" />
+        </div>
+        <div id="category">
+          <div class="selected" id="all-cat">All</div>
+          <div id="men-cat">Men</div>
+          <div id="women-cat">Women</div>
+          <div id="jewel-cat">Jewellery</div>
+          <div id="elec-cat">Electronics</div>
+        </div>
+        <div class="men-section diff-categories">
+          <h2>Men's Clothing</h2>
+          <div class="list"></div>
+        </div>
+        <div class="women-section diff-categories">
+          <h2>Women's Clothing</h2>
+          <div class="list"></div>
+        </div>
+        <div class="jewellery-section diff-categories">
+          <h2>Jewellery</h2>
+          <div class="list"></div>
+        </div>
+        <div class="electronic-section diff-categories">
+          <h2>Electronics</h2>
+          <div class="list"></div>
+        </div>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

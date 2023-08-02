@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">Meshop</div>
+        <div class="nav-right">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./index.html">Login</a></li>
+            <li><a href="../Signup/index.html">Signup</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="login-container">
+        <span>Login</span>
+        <form>
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <input type="password" name="pass" id="pass" placeholder="Password" />
+          <button type="submit" id="login-btn">Login</button>
+        </form>
+      </div>
+    </main>
+    <script>
+      const email = document.getElementById("email");
+      const pass = document.getElementById("pass");
+      const form = document.querySelector("form");
+      const loginBox = document.querySelector(".login-container");
+
+      form.addEventListener("submit", (e) => {
+        if (document.querySelector(".warning"))
+          document.querySelector(".warning").style.display = "none";
+
+        e.preventDefault();
+        if (email.value.trim() === "" || pass.value.trim() === "") {
+          const warning = document.createElement("div");
+          warning.className = "warning";
+          warning.innerText = "*All fields are mandatory!";
+          loginBox.appendChild(warning);
+        } else if (gotUser()) {
+          window.location.href = "../Main/index.html";
+        } else {
+          const warning = document.createElement("div");
+          warning.className = "warning";
+          warning.innerText = "*Incorrect email or password!";
+          loginBox.appendChild(warning);
+        }
+      });
+
+      function gotUser() {
+        const userData = JSON.parse(localStorage.getItem("user"));
+        if (userData === null) return false;
+        for (let i = 0; i < userData.length; i++) {
+          if (
+            userData[i].email === email.value &&
+            userData[i].password === pass.value
+          ) {
+            sessionStorage.setItem("currUser", JSON.stringify(userData[i]));
+            return true;
+          }
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

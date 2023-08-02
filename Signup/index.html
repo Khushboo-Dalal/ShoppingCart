@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>SignUp</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">Meshop</div>
+        <div class="nav-right">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Login/index.html">Login</a></li>
+            <li><a href="./index.html">Signup</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="signup-container">
+        <span>Signup</span>
+        <form>
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+          />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+          />
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <input type="password" name="pass" id="pass" placeholder="Password" />
+          <input
+            type="password"
+            name="confirmPass"
+            id="confirmPass"
+            placeholder="Confirm Password"
+          />
+          <button type="submit" id="signup-btn">SignUp</button>
+        </form>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

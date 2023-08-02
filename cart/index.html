@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Cart</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">Meshop</div>
+        <div class="nav-right">
+          <ul>
+            <li>
+              <a href="../Main/index.html"
+                ><span class="material-symbols-outlined"> home </span></a
+              >
+            </li>
+            <li>
+              <a href="./index.html"
+                ><span class="material-symbols-outlined"> local_mall </span></a
+              >
+            </li>
+          </ul>
+          <div id="profile"></div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h3>My Cart</h3>
+      <div class="flex">
+        <section class="cart-items"></section>
+        <aside class="checkout-list">
+          <span>Checkout list</span>
+          <div id="items-summary"></div>
+          <div class="total-box">
+            <span>Total</span>
+            <span id="total">$0</span>
+          </div>
+          <button id="checkout-btn">Checkout</button>
+        </aside>
+      </div>
+    </main>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

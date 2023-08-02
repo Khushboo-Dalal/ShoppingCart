@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <title>Initial Page</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">Meshop</div>
+        <div class="nav-right">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./Login/index.html">Login</a></li>
+            <li><a href="./Signup/index.html">Signup</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h2>MeShop.</h2>
+      <h4>Your First Shop built on HTML,CSS AND JavaScript</h4>
+      <div id="login_SignUp">
+        <button id="login">Login</button>
+        <button id="signup">Signup</button>
+      </div>
+    </main>
+    <script>
+      const loginBtn = document.getElementById("login");
+      const signupBtn = document.getElementById("signup");
+      signupBtn.onclick = () =>
+        (window.location.href = "./Signup/index.html");
+      loginBtn.onclick = () =>
+        (window.location.href = "./Login/index.html");
+    </script>
+  </body>
+</html>
+
+
+
+
+right 54
+wrong 40
+not given 6

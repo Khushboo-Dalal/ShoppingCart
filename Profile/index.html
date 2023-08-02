@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">Meshop</div>
+        <div class="nav-right">
+          <ul>
+            <li>
+              <a href="../Main/index.html"
+                ><span class="material-symbols-outlined"> home </span></a
+              >
+            </li>
+            <li>
+              <a href="../cart/index.html"
+                ><span class="material-symbols-outlined"> local_mall </span></a
+              >
+            </li>
+          </ul>
+          <div id="profile"></div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h3>My Profile</h3>
+      <form class="form-1">
+        <input type="text" placeholder="First Name" id="fName" />
+        <input type="text" placeholder="Last Name" id="lName" />
+        <button type="submit">Save Info</button>
+      </form>
+      <h3>Edit Password</h3>
+      <form class="form-2">
+        <input type="password" placeholder="Old Password" id="oldPass" />
+        <input type="password" placeholder="New Password" id="newPass" />
+        <input
+          type="password"
+          placeholder="Confirm New Password"
+          id="confirmNewPass"
+        />
+        <button>Change Password</button>
+      </form>
+      <button id="logout">Logout</button>
+    </main>
+    <script>
+      const fName = document.getElementById("fName");
+      const lName = document.getElementById("lName");
+      const form1 = document.querySelector(".form-1");
+      const oldPass = document.getElementById("oldPass");
+      const newPass = document.getElementById("newPass");
+      const confirmNewPass = document.getElementById("confirmNewPass");
+      const form2 = document.querySelector(".form-2");
+      const logoutBtn = document.getElementById("logout");
+
+      if (!sessionStorage.getItem("currUser")) {
+        window.location.href = "../Login/index.html";
+      }
+      const profile = document.getElementById("profile");
+      let parsedUser = JSON.parse(sessionStorage.getItem("currUser"));
+      profile.innerText = parsedUser.name[0].toUpperCase();
+
+      const currUser = JSON.parse(sessionStorage.getItem("currUser"));
+      fName.value = currUser.name.split(" ")[0];
+      lName.value = currUser.name.split(" ")[1];
+
+      function getUserDetails() {
+        const getUsers = JSON.parse(localStorage.getItem("user"));
+        console.log(getUsers);
+        for (let i = 0; i < getUsers.length; i++) {
+          if (getUsers[i].email === currUser.email) {
+            const changeName = () => {
+              getUsers[i].name = currUser.name;
+              localStorage.setItem("user", JSON.stringify(getUsers));
+            };
+            const changePass = () => {
+              getUsers[i].password = currUser.password;
+              localStorage.setItem("user", JSON.stringify(getUsers));
+            };
+            return { changeName, changePass };
+          }
+        }
+      }
+      let innerFunctions = getUserDetails();
+      form1.addEventListener("submit", (e) => {
+        e.preventDefault();
+        currUser.name = fName.value + " " + lName.value;
+        innerFunctions.changeName();
+        sessionStorage.setItem("currUser", JSON.stringify(currUser));
+        window.location.reload();
+      });
+
+      form2.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (oldPass.value !== currUser.password) {
+          alert("Old password is incorrect");
+        } else if (
+          newPass.value.trim() === "" ||
+          confirmNewPass.value.trim() === ""
+        ) {
+          alert("All Fields are mandatory");
+        } else if (newPass.value !== confirmNewPass.value) {
+          alert("New password and confirmed Password mismatch!");
+        } else {
+          currUser.password = newPass.value;
+          innerFunctions.changePass();
+          sessionStorage.setItem("currUser", JSON.stringify(currUser));
+          window.location.reload();
+        }
+      });
+
+      logoutBtn.addEventListener("click", () => {
+        sessionStorage.removeItem("currUser");
+        window.location.href = "../index.html";
+      });
+    </script>
+  </body>
+</html>

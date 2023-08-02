@@ -1,0 +1,80 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    /* outline: 1px solid red; */
+  }
+  header {
+    width: 100vw;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+  }
+  .nav-left {
+    margin-left: 25px;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+  }
+  nav ul,
+  nav li {
+    display: flex;
+    align-items: center;
+  }
+  nav li {
+    list-style: none;
+    margin-right: 25px;
+  }
+  nav li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+  }
+  nav a:hover {
+    background-color: rgb(66, 66, 66);
+  }
+  main {
+    padding: 30px;
+    position: relative;
+    width: 100vw;
+    height: 93vh;
+    overflow: hidden;
+  }
+  h2 {
+    margin-top: 20px;
+    font-size: 8vw;
+  }
+  #login_SignUp {
+    margin-top: 20px;
+  }
+  button {
+    width: 20vw;
+    padding: 8px 0;
+    cursor: pointer;
+    margin-right: 20px;
+    border: 1px solid black;
+  }
+  #login {
+    background-color: black;
+    color: white;
+  }
+  #signup {
+    background-color: white;
+    color: black;
+  }
+  main::after {
+    content: "";
+    background-image: url(./images/shopping_img.png);
+    position: absolute;
+    width: 55%;
+    height: 75%;
+    scale: 1.2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 120px;
+    right: 0px;
+    z-index: -1;
+  }
